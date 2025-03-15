@@ -20,25 +20,45 @@
             display: inline-block;
         }
         video {
-            max-width: 83%;
+            max-height: 100%;
+            max-width: 100%;
             border-radius: 10px;
             box-shadow: 0px 4px 10px rgba(255, 255, 255, 0.2);
         }
         .video-button {
-            position: absolute;
-            top: 83%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            background: linear-gradient(45deg, #FFD700, #FFFFFF);
-            color: rgb(5, 5, 5);
-            border: none;
-            padding: 10px 20px;
-            border-radius: 10px;
-            cursor: pointer;
-            font-size: 16px;
-            font-weight: bold;
-            box-shadow: 0px 4px 10px rgba(255, 223, 0, 0.5);
-        }
+    position: absolute;
+    top: 83%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: linear-gradient(45deg, #FFD700, #FFFFFF);
+    color: rgb(5, 5, 5);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 30px;
+    font-weight: bold;
+    box-shadow: 0px 4px 10px rgba(255, 223, 0, 0.5);
+    animation: pulse 1.5s infinite;
+    min-width: 400px;
+    min-height: 60px;
+}
+
+@keyframes pulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0px 4px 10px rgba(255, 223, 0, 0.5);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.1);
+        box-shadow: 0px 4px 20px rgba(255, 223, 0, 0.7);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        box-shadow: 0px 4px 10px rgba(255, 223, 0, 0.5);
+    }
+}
+
         .video-button:hover {
             background: linear-gradient(45deg, #FFFFFF, #FFD700);
         }
@@ -47,7 +67,7 @@
             top: 37%;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 50px;
+            font-size: 60px;
             font-weight: bold;
             background: rgba(0, 0, 0, 0);
             padding: 10px 20px;
@@ -59,7 +79,7 @@
             top: 43%;
             left: 50%;
             transform: translateX(-50%);
-            font-size: 40px;
+            font-size: 50px;
             font-weight: bold;
             background: rgba(0, 0, 0, 0);
             padding: 10px 20px;
@@ -71,7 +91,7 @@
 <body>
     <div class="video-container">
         <video width=100% autoplay loop playsinline>
-            <source src="video_2.mp4" type="video/mp4">
+            <source src="video_3.mp4" type="video/mp4">
             Your browser does not support the video tag.
         </video>
         <div class="countdown" id="countdown">60</div>

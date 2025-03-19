@@ -1,5 +1,6 @@
 let timeLeft = 60;
 const countdownElement = document.getElementById("countdown");
+
 const countdownInterval = setInterval(() => {
     if (timeLeft > 0) {
         timeLeft--;
@@ -13,13 +14,15 @@ function setVideoSource() {
     const video = document.getElementById("video");
     const source = document.getElementById("videoSource");
 
-    if (window.innerWidth <= 768) {
-        source.src = "video_3.mp4"; // Mobile video
+    if (window.innerWidth <= 468) {
+        source.src = "Only_Background.mp4"; // Mobile video
     } else {
-        source.src = "video_3_2.mp4"; // Desktop video
+        source.src = "video_3_3.mp4"; // Desktop video
     }
 
     video.load(); // Reload video with the new source
 }
+
+// Run when page loads and on resize
 setVideoSource();
 window.addEventListener("resize", setVideoSource);

@@ -139,10 +139,19 @@
 </head>
 <body>
     <div class="video-container">
-        <video autoplay loop playsinline muted>
+        /* <video autoplay loop playsinline muted>
             <source src="video_3_2.mp4" type="video/mp4">
             Your browser does not support the video tag.
+        </video> */
+        <video autoplay loop playsinline muted id="video">
+            <source id="videoSource" src="video_3_2.mp4" type="video/mp4">
+            Your browser does not support the video tag.
         </video>
+        /* <video autoplay loop playsinline muted id="video">
+            <source src="video_3_2.mp4" type="video/mp4" media="(min-width: 769px)">
+            <source src="video_3.mp4" type="video/mp4" media="(max-width: 768px)">
+            Your browser does not support the video tag.
+        </video> */
         <div class="text-container">
             SG AI Crypto & Forex BOT <br>
             Revolutionize Your Trading
@@ -169,6 +178,25 @@
                 clearInterval(countdownInterval);
             }
         }, 1000);
+
+        function setVideoSource() {
+        const video = document.getElementById("video");
+        const source = document.getElementById("videoSource");
+
+        if (window.innerWidth <= 768) {
+            source.src = "video_3.mp4"; // Mobile video
+        } else {
+            source.src = "video_3_2.mp4"; // Desktop video
+        }
+
+        video.load(); // Reload video with the new source
+    }
+
+    // Run function on page load
+    setVideoSource();
+
+    // Update if screen resizes
+    window.addEventListener("resize", setVideoSource);
     </script>
 </body>
 </html>
